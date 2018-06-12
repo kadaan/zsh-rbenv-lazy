@@ -4,7 +4,7 @@ if type rbenv &> /dev/null; then
   export PATH="${RBENV_SHIMS}:${PATH}"
   source $(which rbenv)/../../completions/rbenv.zsh
   function rbenv() {
-    unset rbenv
+    unset -f rbenv > /dev/null 2>&1
     eval "$(command rbenv init -)"
     rbenv "$@"
   }
